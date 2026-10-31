@@ -1,0 +1,17 @@
+name: Notify admin toolbox
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch catalog update
+        env:
+          GH_TOKEN: ${{ secrets.TOOLBOX_DISPATCH_TOKEN }}
+        run: |
+          gh api repos/hsiang0422-star/tnmr-school-admin-toolbox/dispatches \
+            -f event_type=claude-skills-updated \
+            -f client_payload[ref]="${GITHUB_SHA}"
