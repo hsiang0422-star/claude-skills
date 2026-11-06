@@ -1,0 +1,14 @@
+{
+  "name": "hsiang-skills",
+  "owner": {
+    "name": "hsiang0422-star"
+  },
+  "description": "南特總務處 Claude 技能庫（可在其他電腦以 Claude Code 外掛市集安裝並自動更新）",
+  "plugins": [
+    {
+      "name": "moneyprinterturbo",
+      "source": "./moneyprinterturbo",
+      "description": "安裝、啟動與更新 MoneyPrinterTurbo（一鍵生成短影音：給主題就自動寫腳本、配素材、上字幕）"
+    }
+  ]
+}
