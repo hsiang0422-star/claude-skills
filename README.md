@@ -25,6 +25,7 @@
 | [figma](./figma) | 把 Figma 內容（素材、品牌色票、元件、分鏡）帶入 HyperFrames 影片 | [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes)，Apache-2.0 授權，各資料夾內保留 `LICENSE` |
 | [style-sampling](./style-sampling) | 依既有影片風格（如 Collage 或 Finance Explainer）製作新一集 | [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes)，Apache-2.0 授權，各資料夾內保留 `LICENSE` |
 | [univer-cli](./univer-cli) | 用 Univer CLI 直接讀寫試算表、文件、簡報與 .univer 檔，支援匯入匯出、驗證與截圖。需先安裝 `npm install -g univer-cli` | [dream-num/skills](https://github.com/dream-num/skills)，Apache-2.0 授權，見 `univer-cli/LICENSE` |
+| [agent-reach](./agent-reach) | 讓 AI 讀取與搜尋 X、Reddit、YouTube、B站、小紅書、GitHub、V2EX 等平台（只讀，不發文、不替使用者登入）。需先依下方步驟安裝 Agent Reach 程式 | [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach)，MIT 授權，見 `agent-reach/LICENSE` |
 | [moneyprinterturbo](./moneyprinterturbo) | 安裝、啟動與更新 MoneyPrinterTurbo（一鍵生成短影音：給主題就自動寫腳本、配素材、配音、上字幕），含 Mac 與 Windows 安裝腳本 | 原創，用於安裝 [harry0703/MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo)（MIT 授權，本儲存庫不含其程式碼） |
 
 ## 安裝與使用
@@ -41,6 +42,19 @@ claude plugin install moneyprinterturbo@hsiang-skills --scope user
 要自動更新：在 Claude Code 輸入 `/plugin` → Marketplaces → `hsiang-skills` → Enable auto-update。電腦沒有設定 GitHub SSH 金鑰時，先設定環境變數 `CLAUDE_CODE_PLUGIN_PREFER_HTTPS=1`。
 
 目前列入市集的技能：`moneyprinterturbo`。要把其他技能也列入，在 `marketplace.json` 的 `plugins` 加一筆 `{"name": "<技能名>", "source": "./<技能名>"}`。
+
+### 安裝 Agent Reach（需要兩步）
+
+技能本身只是說明文件，真正的指令 `agent-reach` 要另外安裝。在終端機依序執行：
+
+```bash
+uv tool install https://github.com/Panniantong/Agent-Reach/releases/latest/download/agent-reach.zip
+```
+```bash
+agent-reach setup
+```
+
+沒有 uv 的電腦，先依官方說明安裝 uv（不需要管理員密碼）。注意：PyPI 上同名的 `agent-reach` 不是這個專案，請勿從 PyPI 安裝。
 
 ### 直接複製資料夾
 
