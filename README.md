@@ -26,6 +26,7 @@
 | [style-sampling](./style-sampling) | 依既有影片風格（如 Collage 或 Finance Explainer）製作新一集 | [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes)，Apache-2.0 授權，各資料夾內保留 `LICENSE` |
 | [univer-cli](./univer-cli) | 用 Univer CLI 直接讀寫試算表、文件、簡報與 .univer 檔，支援匯入匯出、驗證與截圖。需先安裝 `npm install -g univer-cli` | [dream-num/skills](https://github.com/dream-num/skills)，Apache-2.0 授權，見 `univer-cli/LICENSE` |
 | [agent-reach](./agent-reach) | 讓 AI 讀取與搜尋 X、Reddit、YouTube、B站、小紅書、GitHub、V2EX 等平台（只讀，不發文、不替使用者登入）。需先依下方步驟安裝 Agent Reach 程式 | [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach)，MIT 授權，見 `agent-reach/LICENSE` |
+| [paperclip-board](./paperclip-board) | 以董事身分用中文管理 Paperclip 的 AI 員工團隊：設目標、看任務、審核、看成本。需先安裝 Paperclip 應用程式（見下方） | [paperclipai/paperclip](https://github.com/paperclipai/paperclip)，MIT 授權，見 `paperclip-board/LICENSE` |
 | [moneyprinterturbo](./moneyprinterturbo) | 安裝、啟動與更新 MoneyPrinterTurbo（一鍵生成短影音：給主題就自動寫腳本、配素材、配音、上字幕），含 Mac 與 Windows 安裝腳本 | 原創，用於安裝 [harry0703/MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo)（MIT 授權，本儲存庫不含其程式碼） |
 
 ## 安裝與使用
@@ -55,6 +56,16 @@ agent-reach setup
 ```
 
 沒有 uv 的電腦，先依官方說明安裝 uv（不需要管理員密碼）。注意：PyPI 上同名的 `agent-reach` 不是這個專案，請勿從 PyPI 安裝。
+
+### 安裝 Paperclip 應用程式（paperclip-board 需要）
+
+需要 Node.js 24.11 以上。在終端機執行：
+
+```bash
+npx paperclipai@latest onboard --yes
+```
+
+官方文件：https://docs.paperclip.ing 。
 
 ### 直接複製資料夾
 
