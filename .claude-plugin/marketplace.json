@@ -9,6 +9,11 @@
       "name": "moneyprinterturbo",
       "source": "./moneyprinterturbo",
       "description": "安裝、啟動與更新 MoneyPrinterTurbo（一鍵生成短影音：給主題就自動寫腳本、配素材、上字幕）"
+    },
+    {
+      "name": "univer-cli",
+      "source": "./univer-cli",
+      "description": "用 Univer CLI 直接讀寫 .univer、試算表（xlsx/csv）、文件（docx）與簡報（pptx），含檢查、驗證與匯出（原作者 dream-num/skills，Apache-2.0）"
     }
   ]
 }
