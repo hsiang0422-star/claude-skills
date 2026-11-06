@@ -14,6 +14,11 @@
       "name": "univer-cli",
       "source": "./univer-cli",
       "description": "用 Univer CLI 直接讀寫 .univer、試算表（xlsx/csv）、文件（docx）與簡報（pptx），含檢查、驗證與匯出（原作者 dream-num/skills，Apache-2.0）"
+    },
+    {
+      "name": "paperclip-board",
+      "source": "./paperclip-board",
+      "description": "以董事身分用中文管理 Paperclip 的 AI 員工團隊（需先安裝 Paperclip：npx paperclipai@latest onboard --yes）"
     }
   ]
 }
