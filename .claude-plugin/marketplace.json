@@ -19,6 +19,11 @@
       "name": "paperclip-board",
       "source": "./paperclip-board",
       "description": "以董事身分用中文管理 Paperclip 的 AI 員工團隊（需先安裝 Paperclip：npx paperclipai@latest onboard --yes）"
+    },
+    {
+      "name": "hindsight-local",
+      "source": "./hindsight-local",
+      "description": "本機 AI 長期記憶：記住偏好、任務經驗與做法結果，任務前自動回想（原作者 vectorize-io/hindsight，MIT 授權）"
     }
   ]
 }

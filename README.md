@@ -27,6 +27,7 @@
 | [univer-cli](./univer-cli) | 用 Univer CLI 直接讀寫試算表、文件、簡報與 .univer 檔，支援匯入匯出、驗證與截圖。需先安裝 `npm install -g univer-cli` | [dream-num/skills](https://github.com/dream-num/skills)，Apache-2.0 授權，見 `univer-cli/LICENSE` |
 | [agent-reach](./agent-reach) | 讓 AI 讀取與搜尋 X、Reddit、YouTube、B站、小紅書、GitHub、V2EX 等平台（只讀，不發文、不替使用者登入）。需先依下方步驟安裝 Agent Reach 程式 | [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach)，MIT 授權，見 `agent-reach/LICENSE` |
 | [paperclip-board](./paperclip-board) | 以董事身分用中文管理 Paperclip 的 AI 員工團隊：設目標、看任務、審核、看成本。需先安裝 Paperclip 應用程式（見下方） | [paperclipai/paperclip](https://github.com/paperclipai/paperclip)，MIT 授權，見 `paperclip-board/LICENSE` |
+| [hindsight-local](./hindsight-local) | 本機 AI 長期記憶：記住偏好、任務經驗與做法結果，任務前自動回想（需先設定 `uvx hindsight-embed configure`，並填入自己的 LLM 金鑰） | [vectorize-io/hindsight](https://github.com/vectorize-io/hindsight)，MIT 授權，見 `hindsight-local/LICENSE` |
 | [moneyprinterturbo](./moneyprinterturbo) | 安裝、啟動與更新 MoneyPrinterTurbo（一鍵生成短影音：給主題就自動寫腳本、配素材、配音、上字幕），含 Mac 與 Windows 安裝腳本 | 原創，用於安裝 [harry0703/MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo)（MIT 授權，本儲存庫不含其程式碼） |
 
 ## 安裝與使用
