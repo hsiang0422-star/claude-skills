@@ -30,6 +30,52 @@
 | [hindsight-local](./hindsight-local) | 本機 AI 長期記憶：記住偏好、任務經驗與做法結果，任務前自動回想（需先設定 `uvx hindsight-embed configure`，並填入自己的 LLM 金鑰） | [vectorize-io/hindsight](https://github.com/vectorize-io/hindsight)，MIT 授權，見 `hindsight-local/LICENSE` |
 | [moneyprinterturbo](./moneyprinterturbo) | 安裝、啟動與更新 MoneyPrinterTurbo（一鍵生成短影音：給主題就自動寫腳本、配素材、配音、上字幕），含 Mac 與 Windows 安裝腳本 | 原創，用於安裝 [harry0703/MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo)（MIT 授權，本儲存庫不含其程式碼） |
 | [meeting-signin](./meeting-signin) | 會議電子簽到網頁：與會者用手機手寫簽名，簽名圖檔與簽到名冊自動存進自己的 Google 雲端硬碟與試算表（Google Apps Script，與會者免登入），並產生簽到 QR Code；試算表可一鍵匯出含簽名的 Excel 與 PDF 簽到表。[手機試用頁](https://raw.githack.com/hsiang0422-star/claude-skills/main/meeting-signin/demo/index.html) | 原創 |
+| [cli-a2a](./cli-a2a) | 從命令列與 OmniRoute A2A 伺服器互動，送出任務、查看技能執行紀錄，測試 JSON-RPC 2.0 協定 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `cli-a2a/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [cli-backup-sync](./cli-backup-sync) | 從命令列備份與還原 OmniRoute 資料，並同步到雲端儲存 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `cli-backup-sync/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [cli-batches](./cli-batches) | 從命令列提交與監控批次推論工作，管理批次檔案與結果 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `cli-batches/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [cli-chat](./cli-chat) | 從命令列送出聊天請求、串流回應或進入互動式對話 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `cli-chat/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [cli-compression](./cli-compression) | 從命令列設定並測試提示詞壓縮（RTK 過濾器、Caveman 規則） | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `cli-compression/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [cli-contexts](./cli-contexts) | 從命令列管理上下文工程設定、RTK 過濾器組與對話工作階段 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `cli-contexts/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [cli-cost-usage](./cli-cost-usage) | 從命令列查看費用、token 用量與呼叫紀錄，並匯出報表 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `cli-cost-usage/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [cli-eval](./cli-eval) | 從命令列建立與執行評估套件、比較模型表現並查看計分卡 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `cli-eval/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [cli-health](./cli-health) | 從命令列檢查伺服器健康狀態與即時指標 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `cli-health/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [cli-keys](./cli-keys) | 從命令列建立、列出、輪替與撤銷 OmniRoute API 金鑰 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `cli-keys/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [cli-mcp](./cli-mcp) | 從命令列查看 MCP 伺服器狀態、註冊工具與稽核紀錄 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `cli-mcp/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [cli-models](./cli-models) | 從命令列查詢可用模型、模型別名與完整模型目錄 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `cli-models/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [cli-plugins-skills](./cli-plugins-skills) | 從命令列管理 Omni 技能、外掛與持久記憶 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `cli-plugins-skills/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [cli-policy-audit](./cli-policy-audit) | 從命令列查看稽核紀錄、存取政策與請求歷史，支援合規查核 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `cli-policy-audit/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [cli-providers](./cli-providers) | 從命令列管理服務商連線、測試、驗證與金鑰輪替 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `cli-providers/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [cli-resilience](./cli-resilience) | 從命令列查看與重設斷路器狀態、連線冷卻與配額限制 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `cli-resilience/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [cli-routing](./cli-routing) | 從命令列建立、更新與刪除路由組合，測試策略與備援鏈 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `cli-routing/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [cli-serve](./cli-serve) | 從命令列啟動、停止與重新啟動 OmniRoute 伺服器，管理常駐模式與連接埠 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `cli-serve/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [cli-setup](./cli-setup) | 從命令列執行初始設定、管理全域設定與環境變數、檢查更新 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `cli-setup/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [cli-skill-collector](./cli-skill-collector) | 偵測已安裝的命令列開發工具，搜尋 GitHub 上的代理技能並安裝到這些工具 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `cli-skill-collector/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [cli-tunnel](./cli-tunnel) | 從命令列啟動與停止 ngrok、Cloudflare 等通道並測試外部連線 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `cli-tunnel/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [config-codex-cli](./config-codex-cli) | 引導在任何電腦上設定 OpenAI Codex CLI，以 OmniRoute 作為相容後端 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `config-codex-cli/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [omni-agents-a2a](./omni-agents-a2a) | 透過 JSON-RPC 2.0 代理對代理協定與 OmniRoute 互動，內含 6 項內建技能 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `omni-agents-a2a/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [omni-api-keys](./omni-api-keys) | 建立、列出、輪替與撤銷 API 金鑰，設定權限範圍、花費上限與有效期限 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `omni-api-keys/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [omni-auth](./omni-auth) | 管理 API 金鑰驗證與工作階段權杖，為 REST 存取的起點 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `omni-auth/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [omni-budget](./omni-budget) | 設定每把金鑰或全域的花費上限、token 配額與速率限制 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `omni-budget/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [omni-cache](./omni-cache) | 管理 LLM 回應快取，包括統計、清除、TTL 與語意相似度門檻 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `omni-cache/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [omni-cli-tools](./omni-cli-tools) | 管理透過 API 提供的命令列工具整合與外掛 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `omni-cli-tools/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [omni-combos-routing](./omni-combos-routing) | 建立與管理 19 種路由策略的組合，設定備援鏈並查看組合指標 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `omni-combos-routing/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [omni-compression](./omni-compression) | 設定 RTK、Caveman 與堆疊式提示詞壓縮，管理語言套件與自訂規則 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `omni-compression/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [omni-context-rtk](./omni-context-rtk) | 設定 RTK 過濾器、上下文工程規則與上下文接力，測試壓縮效果 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `omni-context-rtk/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [omni-db-backups](./omni-db-backups) | 觸發系統備份、從備份檔還原，並管理 SQLite 資料庫 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `omni-db-backups/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [omni-github-skills](./omni-github-skills) | 搜尋、評分、掃描並匯入 GitHub 上含 SKILL.md 等檔案的代理技能 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `omni-github-skills/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [omni-inference](./omni-inference) | OpenAI 相容的推論端點，包括對話、嵌入、圖片、語音、審查、重排序與 Responses API | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `omni-inference/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [omni-mcp](./omni-mcp) | 連接 OmniRoute MCP 伺服器（110 項工具，支援 SSE、stdio 與 HTTP） | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `omni-mcp/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [omni-models](./omni-models) | 查詢所有已設定服務商的可用模型、解析模型別名 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `omni-models/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [omni-providers](./omni-providers) | 透過 REST API 管理服務商連線、API 金鑰、OAuth 流程與連線測試 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `omni-providers/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [omni-proxies](./omni-proxies) | 為上游服務商請求設定 HTTP、HTTPS 或 SOCKS 代理與輪替規則 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `omni-proxies/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [omni-resilience](./omni-resilience) | 監控服務商健康、斷路器狀態、延遲指標與預算警示 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `omni-resilience/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [omni-settings](./omni-settings) | 讀取與更新全域設定，如系統提示詞、思考預算、IP 過濾與登入要求 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `omni-settings/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [omni-sync-cloud](./omni-sync-cloud) | 把設定與服務商連線同步到雲端儲存，或從雲端還原 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `omni-sync-cloud/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [omni-tunnels](./omni-tunnels) | 建立安全通道（ngrok、Cloudflare 等），讓 OmniRoute 可被外部或遠端代理存取 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `omni-tunnels/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [omni-usage-logs](./omni-usage-logs) | 查看詳細呼叫紀錄與用量分析，依服務商、模型、時間與費用篩選並匯出 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `omni-usage-logs/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [omni-version-manager](./omni-version-manager) | 安裝、啟動、停止與更新內嵌服務（9Router、CLIProxyAPI）並查看狀態與日誌 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `omni-version-manager/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [omni-webhooks](./omni-webhooks) | 註冊、測試與移除 Webhook，訂閱請求完成、失敗與配額超限等事件 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `omni-webhooks/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
+| [ponytail](./ponytail) | 外部代理技能，強調先判斷任務是否真的需要，再選擇能用的最簡方案 | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail)，MIT 授權，由 OmniRoute 收錄，見 `ponytail/LICENSE` |
 
 ## 安裝與使用
 
