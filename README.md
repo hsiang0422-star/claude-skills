@@ -29,6 +29,7 @@
 | [paperclip-board](./paperclip-board) | 以董事身分用中文管理 Paperclip 的 AI 員工團隊：設目標、看任務、審核、看成本。需先安裝 Paperclip 應用程式（見下方） | [paperclipai/paperclip](https://github.com/paperclipai/paperclip)，MIT 授權，見 `paperclip-board/LICENSE` |
 | [hindsight-local](./hindsight-local) | 本機 AI 長期記憶：記住偏好、任務經驗與做法結果，任務前自動回想（需先設定 `uvx hindsight-embed configure`，並填入自己的 LLM 金鑰） | [vectorize-io/hindsight](https://github.com/vectorize-io/hindsight)，MIT 授權，見 `hindsight-local/LICENSE` |
 | [moneyprinterturbo](./moneyprinterturbo) | 安裝、啟動與更新 MoneyPrinterTurbo（一鍵生成短影音：給主題就自動寫腳本、配素材、配音、上字幕），含 Mac 與 Windows 安裝腳本 | 原創，用於安裝 [harry0703/MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo)（MIT 授權，本儲存庫不含其程式碼） |
+| [meeting-signin](./meeting-signin) | 會議電子簽到網頁：與會者用手機手寫簽名，簽名圖檔與簽到名冊自動存進自己的 Google 雲端硬碟與試算表（Google Apps Script，與會者免登入），並產生簽到 QR Code | 原創 |
 
 ## 安裝與使用
 
@@ -41,9 +42,15 @@ claude plugin marketplace add hsiang0422-star/claude-skills
 claude plugin install moneyprinterturbo@hsiang-skills --scope user
 ```
 
+安裝會議電子簽到技能：
+
+```bash
+claude plugin install meeting-signin@hsiang-skills --scope user
+```
+
 要自動更新：在 Claude Code 輸入 `/plugin` → Marketplaces → `hsiang-skills` → Enable auto-update。電腦沒有設定 GitHub SSH 金鑰時，先設定環境變數 `CLAUDE_CODE_PLUGIN_PREFER_HTTPS=1`。
 
-目前列入市集的技能：`moneyprinterturbo`。要把其他技能也列入，在 `marketplace.json` 的 `plugins` 加一筆 `{"name": "<技能名>", "source": "./<技能名>"}`。
+目前列入市集的技能：`moneyprinterturbo`、`univer-cli`、`paperclip-board`、`hindsight-local`、`meeting-signin`。要把其他技能也列入，在 `marketplace.json` 的 `plugins` 加一筆 `{"name": "<技能名>", "source": "./<技能名>"}`。
 
 ### 安裝 Agent Reach（需要兩步）
 
@@ -67,6 +74,29 @@ npx paperclipai@latest onboard --yes
 ```
 
 官方文件：https://docs.paperclip.ing 。
+
+### 在 OpenAI Codex 使用
+
+技能資料夾採用通用的 `SKILL.md` 格式，Codex 也能讀。在終端機下載本儲存庫，再把需要的技能資料夾複製到 Codex 的技能目錄（以 `meeting-signin` 為例）：
+
+```bash
+git clone https://github.com/hsiang0422-star/claude-skills.git ~/claude-skills
+```
+```bash
+mkdir -p ~/.codex/skills && cp -R ~/claude-skills/meeting-signin ~/.codex/skills/
+```
+
+之後要更新：
+
+```bash
+cd ~/claude-skills && git pull && cp -R meeting-signin ~/.codex/skills/
+```
+
+重新開啟 Codex 後，說「幫我做會議電子簽到」就會使用這個技能。Windows 的技能目錄是 `%USERPROFILE%\.codex\skills`。
+
+### 不用 AI 工具，直接部署會議簽到
+
+`meeting-signin/references/deploy-guide.md` 是給人看的逐步說明，照著把 `meeting-signin/assets/` 的兩個檔案貼到 Google Apps Script 就能用。
 
 ### 直接複製資料夾
 
