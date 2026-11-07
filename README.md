@@ -29,7 +29,7 @@
 | [paperclip-board](./paperclip-board) | 以董事身分用中文管理 Paperclip 的 AI 員工團隊：設目標、看任務、審核、看成本。需先安裝 Paperclip 應用程式（見下方） | [paperclipai/paperclip](https://github.com/paperclipai/paperclip)，MIT 授權，見 `paperclip-board/LICENSE` |
 | [hindsight-local](./hindsight-local) | 本機 AI 長期記憶：記住偏好、任務經驗與做法結果，任務前自動回想（需先設定 `uvx hindsight-embed configure`，並填入自己的 LLM 金鑰） | [vectorize-io/hindsight](https://github.com/vectorize-io/hindsight)，MIT 授權，見 `hindsight-local/LICENSE` |
 | [moneyprinterturbo](./moneyprinterturbo) | 安裝、啟動與更新 MoneyPrinterTurbo（一鍵生成短影音：給主題就自動寫腳本、配素材、配音、上字幕），含 Mac 與 Windows 安裝腳本 | 原創，用於安裝 [harry0703/MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo)（MIT 授權，本儲存庫不含其程式碼） |
-| [meeting-signin](./meeting-signin) | 會議電子簽到網頁：與會者用手機手寫簽名，簽名圖檔與簽到名冊自動存進自己的 Google 雲端硬碟與試算表（Google Apps Script，與會者免登入），並產生簽到 QR Code | 原創 |
+| [meeting-signin](./meeting-signin) | 會議電子簽到網頁：與會者用手機手寫簽名，簽名圖檔與簽到名冊自動存進自己的 Google 雲端硬碟與試算表（Google Apps Script，與會者免登入），並產生簽到 QR Code；試算表可一鍵匯出含簽名的 Excel 與 PDF 簽到表。[手機試用頁](https://raw.githack.com/hsiang0422-star/claude-skills/main/meeting-signin/demo/index.html) | 原創 |
 
 ## 安裝與使用
 
