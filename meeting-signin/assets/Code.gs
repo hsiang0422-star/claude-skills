@@ -8,6 +8,7 @@
  *     欄位：序號、簽到時間、姓名、單位、職稱、簽名（儲存格直接顯示簽名圖）、簽名檔連結、檔案ID
  * - 簽名 PNG 與該場試算表放在雲端硬碟「會議簽到 / 會議名稱」資料夾
  * - 「會議簽到總覽」（本試算表）列出所有會議：簽到人數、最後簽到時間、試算表與資料夾連結
+ * - 總覽上方選單「簽到工具 → 建立會議並產生簽到 QR Code」：輸入會議名稱，自動建立該場試算表與 QR Code
  * - 總覽上方選單「簽到工具 → 匯出選取的會議」：產生含簽名圖的 Excel（.xlsx）與 A4 PDF 簽到表
  *
  * 會議名稱：在網址後面加 ?m=會議名稱，例如 .../exec?m=11月校務會議
@@ -23,13 +24,16 @@ const MAX_SIGNATURE_BYTES = 2 * 1024 * 1024; // 單張簽名上限 2MB
 
 const HEADERS = ['序號', '簽到時間', '姓名', '單位', '職稱', '簽名', '簽名檔連結', '檔案ID'];
 const COL = { no: 1, time: 2, name: 3, org: 4, title: 5, sig: 6, link: 7, fileId: 8 };
-const INDEX_HEADERS = ['會議名稱', '簽到人數', '建立時間', '最後簽到時間', '簽到試算表', '簽名檔資料夾', '試算表ID'];
-const IDX = { meeting: 1, count: 2, created: 3, last: 4, sheetLink: 5, folderLink: 6, ssId: 7 };
+const INDEX_HEADERS = ['會議名稱', '簽到人數', '建立時間', '最後簽到時間', '簽到試算表', '簽名檔資料夾', '試算表ID', '簽到 QR Code'];
+const IDX = { meeting: 1, count: 2, created: 3, last: 4, sheetLink: 5, folderLink: 6, ssId: 7, qr: 8 };
 
 /* ================= 選單與首次設定 ================= */
 
 function onOpen() {
   SpreadsheetApp.getUi().createMenu('簽到工具')
+    .addItem('建立會議並產生簽到 QR Code', 'createMeetingWithQr')
+    .addItem('重新產生選取會議的 QR Code', 'showQrForSelected')
+    .addSeparator()
     .addItem('匯出選取的會議（Excel＋PDF，含簽名）', 'exportSelectedMeeting')
     .addItem('開啟選取會議的簽到試算表', 'openSelectedMeeting')
     .addItem('重新計算簽到人數', 'refreshIndex')
@@ -186,26 +190,37 @@ function getIndexSheet_() {
       if (s.getName() !== INDEX_SHEET_NAME && s.getLastRow() === 0 && ss.getSheets().length > 1) ss.deleteSheet(s);
     });
   }
+  // 舊版總覽沒有「簽到 QR Code」欄，補上標題
+  const qrHead = sheet.getRange(1, IDX.qr);
+  if (qrHead.getValue() !== INDEX_HEADERS[IDX.qr - 1]) {
+    qrHead.setValue(INDEX_HEADERS[IDX.qr - 1]).setFontWeight('bold').setBackground('#eef2f7').setHorizontalAlignment('center');
+    sheet.setColumnWidth(IDX.qr, 130);
+  }
   return sheet;
+}
+
+/** 找出（或新增）總覽中這場會議的那一列，回傳列號 */
+function findOrCreateIndexRow_(meeting, ss, folder) {
+  const sheet = getIndexSheet_();
+  const last = sheet.getLastRow();
+  if (last >= 2) {
+    const ids = sheet.getRange(2, IDX.ssId, last - 1, 1).getValues();
+    for (let i = 0; i < ids.length; i++) if (ids[i][0] === ss.getId()) return i + 2;
+  }
+  const tz = Session.getScriptTimeZone() || 'Asia/Taipei';
+  const row = last + 1;
+  sheet.getRange(row, 1, 1, INDEX_HEADERS.length).setValues([[
+    noFormula_(meeting), 0, Utilities.formatDate(new Date(), tz, 'yyyy/MM/dd HH:mm:ss'), '',
+    '=HYPERLINK("' + ss.getUrl() + '","開啟試算表")',
+    '=HYPERLINK("' + folder.getUrl() + '","開啟資料夾")',
+    ss.getId(), ''
+  ]]);
+  return row;
 }
 
 function updateIndexRow_(meeting, ss, folder, count, lastTime) {
   const sheet = getIndexSheet_();
-  const last = sheet.getLastRow();
-  let row = 0;
-  if (last >= 2) {
-    const ids = sheet.getRange(2, IDX.ssId, last - 1, 1).getValues();
-    for (let i = 0; i < ids.length; i++) if (ids[i][0] === ss.getId()) { row = i + 2; break; }
-  }
-  if (!row) {
-    row = last + 1;
-    sheet.getRange(row, 1, 1, INDEX_HEADERS.length).setValues([[
-      noFormula_(meeting), 0, lastTime, lastTime,
-      '=HYPERLINK("' + ss.getUrl() + '","開啟試算表")',
-      '=HYPERLINK("' + folder.getUrl() + '","開啟資料夾")',
-      ss.getId()
-    ]]);
-  }
+  const row = findOrCreateIndexRow_(meeting, ss, folder);
   sheet.getRange(row, IDX.count).setValue(count);
   sheet.getRange(row, IDX.last).setValue(lastTime);
 }
@@ -249,6 +264,124 @@ function openSelectedMeeting() {
   SpreadsheetApp.getUi().showModalDialog(HtmlService.createHtmlOutput(
     '<p style="font:15px sans-serif"><a href="' + url + '" target="_blank">開啟「' +
     MEETING_FILE_PREFIX + escapeHtml_(sel.meeting) + '」</a></p>').setWidth(360).setHeight(90), '簽到試算表');
+}
+
+/* ================= 建立會議與 QR Code ================= */
+
+/** 選單：輸入會議名稱 → 建立該場試算表與資料夾 → 顯示並儲存 QR Code */
+function createMeetingWithQr() {
+  const ui = SpreadsheetApp.getUi();
+  const base = webAppUrl_();
+  if (!base) return;
+  const r = ui.prompt('建立會議', '請輸入會議名稱（例如：11月校務會議）', ui.ButtonSet.OK_CANCEL);
+  if (r.getSelectedButton() !== ui.Button.OK) return;
+  if (!r.getResponseText().trim()) { ui.alert('請輸入會議名稱。'); return; }
+  const meeting = cleanMeetingName_(r.getResponseText());
+  const ss = getMeetingSpreadsheet_(meeting);
+  const folder = getMeetingFolder_(meeting);
+  const row = findOrCreateIndexRow_(meeting, ss, folder);
+  getIndexSheet_().getRange(row, 1).activate();
+  showQrDialog_(meeting, base);
+}
+
+/** 選單：替總覽中選取的會議重新產生 QR Code */
+function showQrForSelected() {
+  const sel = selectedMeeting_();
+  if (!sel) return;
+  const base = webAppUrl_();
+  if (!base) return;
+  showQrDialog_(sel.meeting, base);
+}
+
+/** 取得已部署的簽到網址（/exec） */
+function webAppUrl_() {
+  const url = ScriptApp.getService().getUrl();
+  if (!url) {
+    SpreadsheetApp.getUi().alert('還沒有部署成網頁應用程式。請先到 Apps Script：「部署 → 新增部署作業 → 網頁應用程式」，執行身分選「我」、存取權選「所有人」。');
+    return '';
+  }
+  return url.replace(/\/dev$/, '/exec');
+}
+
+function signInUrl_(base, meeting) {
+  return base + '?m=' + encodeURIComponent(meeting);
+}
+
+function showQrDialog_(meeting, base) {
+  const html = HtmlService.createHtmlOutput(qrDialogHtml_(meeting, signInUrl_(base, meeting)))
+    .setWidth(460).setHeight(640);
+  SpreadsheetApp.getUi().showModalDialog(html, '簽到 QR Code');
+}
+
+/** 對話框前端呼叫：把 QR Code 圖存到該場會議資料夾，並在總覽記下連結 */
+function saveQrPng(meeting, dataUrl) {
+  meeting = cleanMeetingName_(meeting);
+  const m = String(dataUrl || '').match(/^data:image\/png;base64,([A-Za-z0-9+/=]+)$/);
+  if (!m) throw new Error('QR Code 圖片格式錯誤');
+  const folder = getMeetingFolder_(meeting);
+  const name = 'QRCode_' + meeting + '.png';
+  const old = folder.getFilesByName(name);
+  while (old.hasNext()) old.next().setTrashed(true);
+  const file = folder.createFile(Utilities.newBlob(Utilities.base64Decode(m[1]), 'image/png', name));
+  const ss = getMeetingSpreadsheet_(meeting);
+  const row = findOrCreateIndexRow_(meeting, ss, folder);
+  getIndexSheet_().getRange(row, IDX.qr).setFormula('=HYPERLINK("' + file.getUrl() + '","開啟 QR Code")');
+  return { url: file.getUrl(), downloadUrl: 'https://drive.google.com/uc?export=download&id=' + file.getId() };
+}
+
+function qrDialogHtml_(meeting, url) {
+  const data = JSON.stringify({ meeting: meeting, url: url }).replace(/</g, '\\u003c');
+  return '<!DOCTYPE html><html><head><meta charset="utf-8">' +
+'<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>' +
+'<style>' +
+'body{margin:0;font-family:-apple-system,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;color:#1b2333;}' +
+'.wrap{padding:8px 12px;text-align:center}' +
+'#poster{max-width:100%;width:300px;border:1px solid #d6dbe4;border-radius:8px}' +
+'#qrsrc{display:none}' +
+'.url{width:100%;box-sizing:border-box;font-size:12px;padding:8px;border:1px solid #d6dbe4;border-radius:6px;margin-top:10px}' +
+'.row{display:flex;gap:8px;margin-top:10px}' +
+'a.btn,button{flex:1;font-size:14px;padding:10px;border-radius:8px;border:0;cursor:pointer;text-decoration:none;text-align:center}' +
+'.primary{background:#1f6feb;color:#fff}.secondary{background:#eceef2;color:#1b2333}' +
+'.msg{font-size:13px;margin-top:10px;color:#555;min-height:1.4em}.err{color:#c62828}' +
+'</style></head><body><div class="wrap">' +
+'<img id="poster" alt="簽到 QR Code"><div id="qrsrc"></div>' +
+'<input class="url" id="url" readonly>' +
+'<div class="row"><button class="secondary" id="copy">複製簽到網址</button>' +
+'<a class="btn primary" id="open" target="_blank">開啟 QR Code 圖檔</a></div>' +
+'<div class="msg" id="msg">正在產生 QR Code…</div></div>' +
+'<script>' +
+'var D=' + data + ';' +
+'var msg=document.getElementById("msg"),openBtn=document.getElementById("open");' +
+'openBtn.style.visibility="hidden";' +
+'document.getElementById("url").value=D.url;' +
+'document.getElementById("copy").onclick=function(){var u=document.getElementById("url");u.select();' +
+'try{document.execCommand("copy");msg.textContent="已複製簽到網址";}catch(e){msg.textContent="請手動複製上方網址";}};' +
+'function fail(t){msg.className="msg err";msg.textContent=t;}' +
+'function build(){' +
+' if(typeof QRCode==="undefined"){fail("QR Code 元件載入失敗，請確認網路後重新開啟。簽到網址仍可複製使用。");return;}' +
+' var box=document.getElementById("qrsrc");' +
+' new QRCode(box,{text:D.url,width:600,height:600,correctLevel:QRCode.CorrectLevel.M});' +
+' setTimeout(function(){' +
+'  var q=box.querySelector("canvas");if(!q){fail("QR Code 產生失敗");return;}' +
+'  var W=760,H=960,c=document.createElement("canvas");c.width=W;c.height=H;var g=c.getContext("2d");' +
+'  g.fillStyle="#fff";g.fillRect(0,0,W,H);' +
+'  g.fillStyle="#1b2333";g.textAlign="center";' +
+'  g.font="bold 46px -apple-system,PingFang TC,Noto Sans TC,Microsoft JhengHei,sans-serif";' +
+'  var t=D.meeting;while(g.measureText(t).width>W-60&&t.length>1)t=t.slice(0,-1);if(t!==D.meeting)t=t.slice(0,-1)+"…";' +
+'  g.fillText(t,W/2,90);' +
+'  g.font="30px -apple-system,PingFang TC,Noto Sans TC,Microsoft JhengHei,sans-serif";g.fillStyle="#555";' +
+'  g.fillText("請用手機相機掃描，完成電子簽到",W/2,140);' +
+'  g.drawImage(q,80,190,600,600);' +
+'  g.font="24px sans-serif";g.fillStyle="#888";g.fillText("掃描後填寫姓名並手寫簽名",W/2,860);' +
+'  var png=c.toDataURL("image/png");document.getElementById("poster").src=png;' +
+'  msg.textContent="正在存到雲端硬碟…";' +
+'  google.script.run.withSuccessHandler(function(r){openBtn.href=r.url;openBtn.style.visibility="visible";' +
+'   msg.textContent="已存到該場會議資料夾（QRCode_"+D.meeting+".png），可開啟後下載或列印。";})' +
+'  .withFailureHandler(function(e){fail("存檔失敗："+(e&&e.message||e));}).saveQrPng(D.meeting,png);' +
+' },300);' +
+'}' +
+'if(document.readyState==="complete")build();else window.addEventListener("load",build);' +
+'</script></body></html>';
 }
 
 /* ================= 匯出 Excel / PDF ================= */
