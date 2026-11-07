@@ -29,6 +29,11 @@
       "name": "meeting-signin",
       "source": "./meeting-signin",
       "description": "會議電子簽到網頁：手機手寫簽名，簽名檔與名冊自動存進自己的 Google 雲端硬碟與試算表（Google Apps Script），並產生簽到 QR Code"
+    },
+    {
+      "name": "new-skill-intake",
+      "source": "./new-skill-intake",
+      "description": "收錄新技能的流程：辨識截圖或技能名稱、授權與 AI 安全檢查、判斷可用於 Claude 雲端或 OpenAI Codex，收錄到 claude-skills 並分類到行政工具箱"
     }
   ]
 }
