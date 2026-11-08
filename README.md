@@ -85,6 +85,15 @@
 | [improve-codebase-architecture](./improve-codebase-architecture) | 掃描程式碼找出可深化的模組（把淺層模組改為深層），產生視覺化 HTML 報告，再透過追問決定要改哪一項（依賴 codebase-design、grilling、domain-modeling） | [mattpocock/skills](https://github.com/mattpocock/skills)，MIT 授權（Matt Pocock），見 `improve-codebase-architecture/LICENSE`；報告會載入 Tailwind 與 Mermaid 的 CDN，並寫入系統暫存資料夾 |
 | [codebase-design](./codebase-design) | 深層模組的共用詞彙與原則（module、interface、seam、adapter 等），供架構與介面設計技能使用 | [mattpocock/skills](https://github.com/mattpocock/skills)，MIT 授權（Matt Pocock），見 `codebase-design/LICENSE`；無前置程式 |
 | [handoff](./handoff) | 把目前的對話整理成交接文件，讓新的代理接續工作；文件寫入系統暫存資料夾。注意：摘要可能含公文或個資，使用前請檢查 | [mattpocock/skills](https://github.com/mattpocock/skills)，MIT 授權（Matt Pocock），見 `handoff/LICENSE`；無前置程式 |
+| [higgsfield-brandkit](./higgsfield-brandkit) | 建立品牌套件（色彩、字體、標誌等視覺規範）並產出可用素材 | [higgsfield-ai/skills](https://github.com/higgsfield-ai/skills)，MIT 授權（Higgsfield AI），見 `higgsfield-brandkit/LICENSE`；需先安裝 Higgsfield CLI 並登入，生成內容會消耗點數 |
+| [higgsfield-faceless-video](./higgsfield-faceless-video) | 製作不露臉的旁白式短影片，包含腳本、畫面與配音規劃 | [higgsfield-ai/skills](https://github.com/higgsfield-ai/skills)，MIT 授權（Higgsfield AI），見 `higgsfield-faceless-video/LICENSE`；需先安裝 Higgsfield CLI 並登入，生成內容會消耗點數 |
+| [higgsfield-generate](./higgsfield-generate) | 透過 Higgsfield CLI 生成圖片與影片，為其他 Higgsfield 技能的基礎 | [higgsfield-ai/skills](https://github.com/higgsfield-ai/skills)，MIT 授權（Higgsfield AI），見 `higgsfield-generate/LICENSE`；需先安裝 Higgsfield CLI 並登入，生成內容會消耗點數 |
+| [higgsfield-marketplace-cards](./higgsfield-marketplace-cards) | 製作電商平台的商品卡片圖與文案素材 | [higgsfield-ai/skills](https://github.com/higgsfield-ai/skills)，MIT 授權（Higgsfield AI），見 `higgsfield-marketplace-cards/LICENSE`；需先安裝 Higgsfield CLI 並登入，生成內容會消耗點數 |
+| [higgsfield-product-photoshoot](./higgsfield-product-photoshoot) | 把商品照片轉成棚拍風格的商品攝影圖 | [higgsfield-ai/skills](https://github.com/higgsfield-ai/skills)，MIT 授權（Higgsfield AI），見 `higgsfield-product-photoshoot/LICENSE`；需先安裝 Higgsfield CLI 並登入，生成內容會消耗點數 |
+| [higgsfield-soul-id](./higgsfield-soul-id) | 訓練專屬角色（Soul ID），之後可在生成圖片時保持同一人物外觀 | [higgsfield-ai/skills](https://github.com/higgsfield-ai/skills)，MIT 授權（Higgsfield AI），見 `higgsfield-soul-id/LICENSE`；需先安裝 Higgsfield CLI 並登入，生成內容會消耗點數 |
+| [higgsfield-video-explainer](./higgsfield-video-explainer) | 舊版解說影片技能的相容入口，供既有流程延續使用；新的一般解說影片請用其他技能 | [higgsfield-ai/skills](https://github.com/higgsfield-ai/skills)，MIT 授權（Higgsfield AI），見 `higgsfield-video-explainer/LICENSE`；需先安裝 Higgsfield CLI 並登入，生成內容會消耗點數 |
+| [higgsfield-websites](./higgsfield-websites) | 透過 Higgsfield CLI 建置、編輯並部署網站、網頁應用與小遊戲（含遊戲美術素材） | [higgsfield-ai/skills](https://github.com/higgsfield-ai/skills)，MIT 授權（Higgsfield AI），見 `higgsfield-websites/LICENSE`；需先安裝 Higgsfield CLI 並登入，生成內容會消耗點數 |
+| [higgsfield-youtube-thumbnail](./higgsfield-youtube-thumbnail) | 製作 YouTube 影片縮圖，依標題與主題生成圖片 | [higgsfield-ai/skills](https://github.com/higgsfield-ai/skills)，MIT 授權（Higgsfield AI），見 `higgsfield-youtube-thumbnail/LICENSE`；需先安裝 Higgsfield CLI 並登入，生成內容會消耗點數 |
 
 ## 安裝與使用
 
