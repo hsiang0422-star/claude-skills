@@ -84,6 +84,7 @@
 | [domain-modeling](./domain-modeling) | 建立與修正專案的領域模型：統一用語、撰寫 GLOSSARY.md 與 ADR 架構決策紀錄（grill-with-docs 的依賴技能） | [mattpocock/skills](https://github.com/mattpocock/skills)，MIT 授權（Matt Pocock），見 `domain-modeling/LICENSE`；無前置程式 |
 | [improve-codebase-architecture](./improve-codebase-architecture) | 掃描程式碼找出可深化的模組（把淺層模組改為深層），產生視覺化 HTML 報告，再透過追問決定要改哪一項（依賴 codebase-design、grilling、domain-modeling） | [mattpocock/skills](https://github.com/mattpocock/skills)，MIT 授權（Matt Pocock），見 `improve-codebase-architecture/LICENSE`；報告會載入 Tailwind 與 Mermaid 的 CDN，並寫入系統暫存資料夾 |
 | [codebase-design](./codebase-design) | 深層模組的共用詞彙與原則（module、interface、seam、adapter 等），供架構與介面設計技能使用 | [mattpocock/skills](https://github.com/mattpocock/skills)，MIT 授權（Matt Pocock），見 `codebase-design/LICENSE`；無前置程式 |
+| [handoff](./handoff) | 把目前的對話整理成交接文件，讓新的代理接續工作；文件寫入系統暫存資料夾。注意：摘要可能含公文或個資，使用前請檢查 | [mattpocock/skills](https://github.com/mattpocock/skills)，MIT 授權（Matt Pocock），見 `handoff/LICENSE`；無前置程式 |
 
 ## 安裝與使用
 
