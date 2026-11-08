@@ -94,6 +94,7 @@
 | [higgsfield-video-explainer](./higgsfield-video-explainer) | 舊版解說影片技能的相容入口，供既有流程延續使用；新的一般解說影片請用其他技能 | [higgsfield-ai/skills](https://github.com/higgsfield-ai/skills)，MIT 授權（Higgsfield AI），見 `higgsfield-video-explainer/LICENSE`；需先安裝 Higgsfield CLI 並登入，生成內容會消耗點數 |
 | [higgsfield-websites](./higgsfield-websites) | 透過 Higgsfield CLI 建置、編輯並部署網站、網頁應用與小遊戲（含遊戲美術素材） | [higgsfield-ai/skills](https://github.com/higgsfield-ai/skills)，MIT 授權（Higgsfield AI），見 `higgsfield-websites/LICENSE`；需先安裝 Higgsfield CLI 並登入，生成內容會消耗點數 |
 | [higgsfield-youtube-thumbnail](./higgsfield-youtube-thumbnail) | 製作 YouTube 影片縮圖，依標題與主題生成圖片 | [higgsfield-ai/skills](https://github.com/higgsfield-ai/skills)，MIT 授權（Higgsfield AI），見 `higgsfield-youtube-thumbnail/LICENSE`；需先安裝 Higgsfield CLI 並登入，生成內容會消耗點數 |
+| [unslop](./unslop) | 移除文字中的 AI 寫作痕跡（如套話、過度修飾），可只檢查不改寫，也可改寫成較自然的語氣 | [theclaymethod/unslop](https://github.com/theclaymethod/unslop)，MIT 授權（原作者 claytonkim）。收錄 SKILL.md、references、presets、scripts，省略 evals 測試資料與開發文件，內容未修改。其中 `scripts/wiki_sync.py` 會連到維基百科 API |
 
 ## 安裝與使用
 
