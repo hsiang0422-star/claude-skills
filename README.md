@@ -77,6 +77,7 @@
 | [omni-webhooks](./omni-webhooks) | 註冊、測試與移除 Webhook，訂閱請求完成、失敗與配額超限等事件 | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)，MIT 授權，見 `omni-webhooks/LICENSE`；需先安裝並啟動 OmniRoute 伺服器 |
 | [ponytail](./ponytail) | 外部代理技能，強調先判斷任務是否真的需要，再選擇能用的最簡方案 | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail)，MIT 授權，由 OmniRoute 收錄，見 `ponytail/LICENSE` |
 | [new-skill-intake](./new-skill-intake) | 收錄新技能的流程：辨識截圖或連結、授權與 AI 安全檢查、判斷可用於 Claude 雲端或 OpenAI Codex，收錄到本儲存庫並分類到行政工具箱技能站 | 原創 |
+| [find-skills](./find-skills) | 協助搜尋與安裝代理技能：依需求以 `npx skills find` 搜尋，並提醒先檢視來源與安裝數。注意：範例含 `-g -y`，會全域安裝且略過確認，使用前請先確認 | [vercel-labs/skills](https://github.com/vercel-labs/skills)，MIT 授權（Vercel, Inc.），見 `find-skills/LICENSE`；需先安裝 Node.js 與 skills CLI |
 
 ## 安裝與使用
 
