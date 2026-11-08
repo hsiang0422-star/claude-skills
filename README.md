@@ -78,6 +78,8 @@
 | [ponytail](./ponytail) | 外部代理技能，強調先判斷任務是否真的需要，再選擇能用的最簡方案 | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail)，MIT 授權，由 OmniRoute 收錄，見 `ponytail/LICENSE` |
 | [new-skill-intake](./new-skill-intake) | 收錄新技能的流程：辨識截圖或連結、授權與 AI 安全檢查、判斷可用於 Claude 雲端或 OpenAI Codex，收錄到本儲存庫並分類到行政工具箱技能站 | 原創 |
 | [find-skills](./find-skills) | 協助搜尋與安裝代理技能：依需求以 `npx skills find` 搜尋，並提醒先檢視來源與安裝數。注意：範例含 `-g -y`，會全域安裝且略過確認，使用前請先確認 | [vercel-labs/skills](https://github.com/vercel-labs/skills)，MIT 授權（Vercel, Inc.），見 `find-skills/LICENSE`；需先安裝 Node.js 與 skills CLI |
+| [grill-me](./grill-me) | 以「不斷追問」的方式訪談，把計畫或設計琢磨清楚（叫用後會呼叫 grilling 技能）。需與 grilling 一起安裝 | [mattpocock/skills](https://github.com/mattpocock/skills)，MIT 授權（Matt Pocock），見 `grill-me/LICENSE`；無前置程式 |
+| [grilling](./grilling) | 針對計畫、決策或想法進行連續追問，直到雙方理解一致，並以設計樹的方式逐輪提問 | [mattpocock/skills](https://github.com/mattpocock/skills)，MIT 授權（Matt Pocock），見 `grilling/LICENSE`；無前置程式 |
 
 ## 安裝與使用
 
