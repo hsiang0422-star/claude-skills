@@ -1,6 +1,6 @@
 ---
 name: new-skill-intake
-description: Use when the user finds a new skill via a link, pasted SKILL.md, or a screenshot, to check its AI safety and license, judge whether it runs on Claude cloud or OpenAI Codex, save it to the claude-skills GitHub repo, and classify it on the admin toolbox skills page.
+description: Use when the user finds a new skill via a skill name, link, pasted SKILL.md, or a screenshot. Searches GitHub and explains what the skill is first, then after the user decides, checks AI safety and license, judges Claude cloud or OpenAI Codex, saves it to the claude-skills GitHub repo, and classifies it on the admin toolbox skills page.
 ---
 
 # 新技能收錄流程（new-skill-intake）
@@ -16,6 +16,16 @@ description: Use when the user finds a new skill via a link, pasted SKILL.md, or
   - `shared`：「網路上分享的技能」，格式為 `[名稱, 分類, 說明, 連結]`。
 
 ## 步驟
+
+0. **先搜尋並說明（最前面，不安裝）**
+   - 使用者貼上技能名稱時，先到 GitHub 搜尋（用名稱與 `SKILL.md` 關鍵字，例如 `<名稱> SKILL.md`）。
+   - 找出候選來源後，向使用者說明：
+     - 這是什麼技能（用途，用繁體中文說明）。
+     - 來源儲存庫、作者、授權、星數或最近更新時間（能查到的才寫）。
+     - 同名的不同來源有哪些，各自差在哪裡。
+   - **此步驟不寫入任何儲存庫，也不更新技能站。** 說明後等使用者決定是否安裝，並明確指定要哪一個來源。
+   - 使用者決定安裝後，才從下方的「1. 辨識輸入」開始；若使用者說不裝，流程到此結束。
+   - 若同名來源有多個，列出候選請使用者選擇，不自行挑選。
 
 1. **辨識輸入**（輸入可能是截圖、直接打上的技能名稱，或兩者並用）
    - **截圖**：先讀取圖片，找出工具或技能名稱與看得到的宣稱。截圖本身不是來源，只能當線索。
