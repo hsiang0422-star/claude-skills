@@ -96,6 +96,7 @@
 | [higgsfield-youtube-thumbnail](./higgsfield-youtube-thumbnail) | 製作 YouTube 影片縮圖，依標題與主題生成圖片 | [higgsfield-ai/skills](https://github.com/higgsfield-ai/skills)，MIT 授權（Higgsfield AI），見 `higgsfield-youtube-thumbnail/LICENSE`；需先安裝 Higgsfield CLI 並登入，生成內容會消耗點數 |
 | [unslop](./unslop) | 移除文字中的 AI 寫作痕跡（如套話、過度修飾），可只檢查不改寫，也可改寫成較自然的語氣 | [theclaymethod/unslop](https://github.com/theclaymethod/unslop)，MIT 授權（原作者 claytonkim）。收錄 SKILL.md、references、presets、scripts，省略 evals 測試資料與開發文件，內容未修改。其中 `scripts/wiki_sync.py` 會連到維基百科 API |
 | [windows-mcp](./windows-mcp) | 透過 MCP 讓 AI 操作 Windows 桌面（開啟程式、瀏覽檔案、輸入文字、執行 PowerShell）。只能在 Windows 使用，需 Python 3.14 以上與 uv；執行前請確認電腦沒有學生個資或公文 | [CursorTouch/Windows-MCP](https://github.com/CursorTouch/Windows-MCP)，MIT 授權，見 `windows-mcp/LICENSE.md`。本資料夾只含說明，不含上游程式碼 |
+| [OmniGet](https://github.com/tonhowtf/omniget) | 桌面影音下載工具，以 yt-dlp 為基礎，可下載 YouTube、Instagram、TikTok 等平台影音。這是桌面應用程式，不是技能；本儲存庫只保留連結，不含程式碼。請只下載有權使用的內容 | 原作者 tonhowtf，GPL-3.0 授權（依搜尋結果記載，尚待核對原始儲存庫） |
 
 ## 安裝與使用
 
