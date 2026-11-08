@@ -80,6 +80,8 @@
 | [find-skills](./find-skills) | 協助搜尋與安裝代理技能：依需求以 `npx skills find` 搜尋，並提醒先檢視來源與安裝數。注意：範例含 `-g -y`，會全域安裝且略過確認，使用前請先確認 | [vercel-labs/skills](https://github.com/vercel-labs/skills)，MIT 授權（Vercel, Inc.），見 `find-skills/LICENSE`；需先安裝 Node.js 與 skills CLI |
 | [grill-me](./grill-me) | 以「不斷追問」的方式訪談，把計畫或設計琢磨清楚（叫用後會呼叫 grilling 技能）。需與 grilling 一起安裝 | [mattpocock/skills](https://github.com/mattpocock/skills)，MIT 授權（Matt Pocock），見 `grill-me/LICENSE`；無前置程式 |
 | [grilling](./grilling) | 針對計畫、決策或想法進行連續追問，直到雙方理解一致，並以設計樹的方式逐輪提問 | [mattpocock/skills](https://github.com/mattpocock/skills)，MIT 授權（Matt Pocock），見 `grilling/LICENSE`；無前置程式 |
+| [grill-with-docs](./grill-with-docs) | 追問式訪談，同時對照既有領域模型並更新 CONTEXT／GLOSSARY 與 ADR 文件（需與 grilling、domain-modeling 一起安裝）。會在專案中寫入文件，使用前請確認位置 | [mattpocock/skills](https://github.com/mattpocock/skills)，MIT 授權（Matt Pocock），見 `grill-with-docs/LICENSE`；無前置程式 |
+| [domain-modeling](./domain-modeling) | 建立與修正專案的領域模型：統一用語、撰寫 GLOSSARY.md 與 ADR 架構決策紀錄（grill-with-docs 的依賴技能） | [mattpocock/skills](https://github.com/mattpocock/skills)，MIT 授權（Matt Pocock），見 `domain-modeling/LICENSE`；無前置程式 |
 
 ## 安裝與使用
 
